@@ -13,7 +13,7 @@ If you are reporting a bug, please include:
 * Any details about your local setup that might be helpful in troubleshooting.
 * Detailed steps to reproduce the bug.
 
-You can report bugs at ............
+You can report bugs [here](https://github.com/UBC-MDS/mental_health_in_tech_dashboard/issues)
 
 ### Fix Bugs
 
@@ -33,7 +33,7 @@ on the web in blog posts, articles, and such.
 
 ### Submit Feedback
 
-You can send feedback through filing an issue at ..............
+You can send feedback through filing an issue [here](https://github.com/UBC-MDS/mental_health_in_tech_dashboard/issues)
 
 If you are proposing a feature:
 
@@ -64,5 +64,5 @@ Before you submit a pull request, check that it meets these guidelines:
 
 ## Code of Conduct
 
-Please note that the `imghelp` project is released with a 
+Please note that the `Mental Health in Tech Dashboard` project is released with a 
 Code of Conduct. By contributing to this project you agree to abide by its terms.
