@@ -30,6 +30,39 @@ Example sketch of the Mental Health in Tech Dashboard:
 
 ![Page3](sketch/Page3.jpg)
 
+Requirments
+-----------
+
+If you would like to run this dashboard locally you can follow this following instructions.
+
+1. Clone this repo to your local machine via:
+
+```sh
+$ git clone https://github.com/UBC-MDS/mental_health_in_tech_dashboard.git
+```
+
+2. Navigate to the local files then run this following to setup a conda virtual environment in your choice of terminal:
+
+```sh
+$ conda env create -f environment.yaml
+```
+
+3. Activate the virtual environment in conda
+
+```sh
+$ conda activate mentalhealthdashboard
+```
+
+4. Then run this to initiate the dashboard:
+```sh
+$ Python "src/app.py"
+```
+
+5. Once the script is finished running, you can view the browser at:
+```sh
+$ http://127.0.0.1:8050/
+```
+
 Dataset and Acknowledgements
 ----------------------------
 This dataset used in this tool is from a 2014 survey conducted by [Open Sourcing Mental Illness Ltd](https://osmihelp.org/about/about-osmi) that measures worker's attitudes towards mental health and frequency of mental health disorders in the tech workplace.
