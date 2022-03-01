@@ -1,0 +1,23 @@
+##Setup environment for Mental Health In Tech Dashboard
+
+##conda env create -f environment.yaml
+
+name: 'mentalhealthdashboard'
+channels:
+  - conda-forge
+  - defaults
+  - plotly
+dependencies:
+  - ipykernel
+  - ipython>=7.15
+  - scipy
+  - pandas
+  - matplotlib
+  - scikit-learn>=1.0.2  
+  - vega_datasets
+  - altair
+  - plotly
+  - pip
+  - pip:
+    - dash
+    - dash_bootstrap_components
