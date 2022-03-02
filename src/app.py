@@ -195,8 +195,8 @@ def tab2():
                         html.Br(),
                         dcc.Dropdown(
                             id = 'chart-widget',
-                            value = 'bar',
-                            options = ["bar", "pie"]
+                            value = "bar",
+                            options = [{'label': t, 'value': t} for t in chart_tpye]
                         ),
                         html.Br(),
                         html.H4("Survey questions"),
@@ -215,14 +215,14 @@ def tab2():
                         html.Br(),
                         html.H4("Age"),
                         dcc.Checklist(
-                            id = 'gender-widget',
+                            id = 'age-widget',
                             value = agelist,
                             options = [{'label': age, 'value': age} for age in agelist]
                         ),
                         html.Br(),
                         html.H4("Company size"),
                         dcc.Checklist(
-                            id = 'gender-widget',
+                            id = 'size-widget',
                             value = sizelist,
                             options = [{'label': size, 'value': size} for size in sizelist]
                         ),
@@ -299,16 +299,17 @@ def select_tab(active_tab):
         return tab3()
 
 
-# @app.callback(
-#     Output("interactive", "srcDoc"),
-#     Inputs = dict(question = ("chart-widget", "value"),
-#                   chart_type = ("q-widget", "value"),
-#                   gender = ("gender-widget", "value"),
-#                   age = ("age-widget", "value"),
-#                   size = ("size-widget", "value"))
-# )
+@app.callback(
+    Output("interactive", "srcDoc"),
+    inputs = dict(question = Input('q-widget', "value"),
+                  chart_type = Input('chart-widget', "value"),
+                  gender = Input('gender-widget', "value"),
+                  age = Input('age-widget', "value"),
+                  size = Input('size-widget', "value"))
+)
 
 def interactive(question, chart_type, gender, size, age):
+    data = pd.read_csv("data/processed/survey.csv")
     data = data.drop(data[data["Q8"] == "Female"].index)
     df = data[data.Gender.isin(gender) &
               data.Q5.isin(size) &
@@ -318,13 +319,13 @@ def interactive(question, chart_type, gender, size, age):
     df_pie["Count"] = df_pie.iloc[:, 0].astype(int)
     df_pie["Pctg"] = round(df_pie .iloc[:, 0] / np.sum(df_pie.iloc[:, 0]) * 100, 2)
     df_pie["Answer"] = df_pie.index
-    
     if chart_type == "bar":
         chart = alt.Chart(df).mark_bar().encode(
             alt.X("count():Q"),
             alt.Y(f"{question}:N", sort = "-x")
         )
-        return chart
+
+        return chart.to_html()
     
     if chart_type == "pie":
         chart = alt.Chart(df_pie).mark_arc(outerRadius = 100).encode(
