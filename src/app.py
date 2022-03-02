@@ -10,7 +10,8 @@ external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 app = Dash(
     title="Mental Health in Tech Dashboard",
-    external_stylesheets=[dbc.themes.BOOTSTRAP]
+    external_stylesheets=[dbc.themes.BOOTSTRAP],
+    suppress_callback_exceptions=True
 )
 
 server = app.server
@@ -22,7 +23,7 @@ logo = "https://cdn-icons-png.flaticon.com/512/2017/2017231.png"
 # data wrangling for plots
 
 # create employer size df
-size = data
+size = data.drop(data[data["Q5"] == "Female"].index)
 
 # create gender count and percentage df
 gender = data
@@ -37,7 +38,8 @@ gender["Count"] = gender["Gender"]
 gender["Gender"] = gender.index
 
 # create age df
-age = data.dropna()
+age = data.drop(data[data["Age"] == "Female"].index)
+age = age.dropna()
 
 # create benefit count and percentage df
 data = data.drop(data[data["Q8"] == "Female"].index)
