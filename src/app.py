@@ -176,6 +176,12 @@ def tab1():
     
 def tab2():
     """Layout structure for Interactive View"""
+    qlist = ["Q14", "Q15", "Q21"]
+    chart_tpye = ["bar", "pie"]
+    genderlist = ["Male", "Female", "Other"]
+    sizelist = ["1-5", "6-25", "26-100", "100-500", "500-1000", "More than 1000"]
+    agelist = ["18-24", "25-34", "35-44", "45-54", "55+"]
+
     interactive_view = html.Div(
         [
             dbc.Col([
@@ -184,9 +190,50 @@ def tab2():
                     html.P(
                     children=[
                         html.H3("Controls"),
+                        html.Br(),
+                        html.H4("Plot type"),
+                        html.Br(),
+                        dcc.Dropdown(
+                            id = 'chart-widget',
+                            value = 'bar',
+                            options = ["bar", "pie"]
+                        ),
+                        html.Br(),
+                        html.H4("Survey questions"),
+                        dcc.Dropdown(
+                            id = 'q-widget',
+                            value = 'Q14',
+                            options = [{'label': q, 'value': q} for q in qlist]
+                        ),
+                        html.Br(),
+                        html.H4("Gender"),
+                        dcc.Checklist(
+                            id = 'gender-widget',
+                            value = genderlist,
+                            options = [{'label': gender, 'value': gender} for gender in genderlist]
+                        ),
+                        html.Br(),
+                        html.H4("Age"),
+                        dcc.Checklist(
+                            id = 'gender-widget',
+                            value = agelist,
+                            options = [{'label': age, 'value': age} for age in agelist]
+                        ),
+                        html.Br(),
+                        html.H4("Company size"),
+                        dcc.Checklist(
+                            id = 'gender-widget',
+                            value = sizelist,
+                            options = [{'label': size, 'value': size} for size in sizelist]
+                        ),
                     ]
                 )
-            ], width=2)           
+            ], width=2),
+            dbc.Col([
+                html.Iframe(
+                    id = 'interactive',
+                    style = {'border-width': '0', 'width': '100%', 'height': '400px'})
+            ])
         ]
     )
     
@@ -251,6 +298,47 @@ def select_tab(active_tab):
     elif active_tab == "tab-3":
         return tab3()
 
+
+# @app.callback(
+#     Output("interactive", "srcDoc"),
+#     Inputs = dict(question = ("chart-widget", "value"),
+#                   chart_type = ("q-widget", "value"),
+#                   gender = ("gender-widget", "value"),
+#                   age = ("age-widget", "value"),
+#                   size = ("size-widget", "value"))
+# )
+
+def interactive(question, chart_type, gender, size, age):
+    data = data.drop(data[data["Q8"] == "Female"].index)
+    df = data[data.Gender.isin(gender) &
+              data.Q5.isin(size) &
+              data.Age.isin(age)]
     
+    df_pie = pd.DataFrame(df[question].value_counts())
+    df_pie["Count"] = df_pie.iloc[:, 0].astype(int)
+    df_pie["Pctg"] = round(df_pie .iloc[:, 0] / np.sum(df_pie.iloc[:, 0]) * 100, 2)
+    df_pie["Answer"] = df_pie.index
+    
+    if chart_type == "bar":
+        chart = alt.Chart(df).mark_bar().encode(
+            alt.X("count():Q"),
+            alt.Y(f"{question}:N", sort = "-x")
+        )
+        return chart
+    
+    if chart_type == "pie":
+        chart = alt.Chart(df_pie).mark_arc(outerRadius = 100).encode(
+            theta = alt.Theta("Count:Q", stack = True), 
+            color = alt.Color("Answer:N")
+        )
+        text = chart.mark_text(radius = 140, size = 20).encode(
+            text = "Pctg:Q",
+            color = "Answer"
+        )
+        chart = chart + text
+        
+        return chart.to_html()
+
+
 if __name__ == '__main__':
     app.run_server(debug=True)
