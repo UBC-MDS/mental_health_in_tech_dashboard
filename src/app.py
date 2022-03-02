@@ -183,8 +183,8 @@ def tab2():
     agelist = ["18-24", "25-34", "35-44", "45-54", "55+"]
 
     interactive_view = html.Div(
-        [
-            dbc.Col([
+        [dbc.Row([
+                dbc.Col([
                     html.H1(children="Mental Health in Tech Dashboard"), 
                     html.Br(),
                     html.P(
@@ -229,11 +229,12 @@ def tab2():
                     ]
                 )
             ], width=2),
-            dbc.Col([
-                html.Iframe(
-                    id = 'interactive',
-                    style = {'border-width': '0', 'width': '100%', 'height': '400px'})
-            ])
+                dbc.Col([
+                    html.Iframe(
+                        id = 'interactive',
+                        style = {'border-width': '0', 'width': '100%', 'height': '400px'})
+                ])
+        ])
         ]
     )
     
