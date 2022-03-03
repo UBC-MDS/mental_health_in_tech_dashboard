@@ -5,6 +5,7 @@ import numpy as np
 import dash_bootstrap_components as dbc
 from dash import Dash, dcc, html
 from dash.dependencies import Input, Output
+from vega_datasets import data as dt
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
@@ -21,8 +22,8 @@ data = data.drop(data[data["Q8"] == "Female"].index)
 logo = "https://cdn-icons-png.flaticon.com/512/2017/2017231.png"
 
 # static sources needed for map plot
-source = data.unemployment.url
-states = alt.topo_feature(data.us_10m.url, 'states')
+source = dt.unemployment.url
+states = alt.topo_feature(dt.us_10m.url, 'states')
 us_state_abbrev = {
 'Alabama': 'AL', 'Alaska': 'AK', 'Arizona': 'AZ', 'Arkansas': 'AR', 'California': 'CA', 'Colorado': 'CO',
 'Connecticut': 'CT', 'Delaware': 'DE', 'Florida': 'FL', 'Georgia': 'GA', 'Hawaii': 'HI', 'Idaho': 'ID',
@@ -283,20 +284,30 @@ def tab3():
         type='albersUsa'
     ).properties(
         width=500,
-        height=300
+        height=300,
+        title="Proportion of Those who have Seeked Mental Health Help by State"
     )
 
     map_view = html.Div(
         [
-            dbc.Col([
+            dbc.Row([
+                dbc.Col([
                     html.H1(children="Mental Health in Tech Dashboard"), 
                     html.Br(),
                     html.P(
-                    children=[
-                        html.H3("Controls"),
-                    ]
-                )
-            ], width=2)           
+                        children=[
+                            html.H3("Controls"),
+                        ]
+                    )
+                ], width=2),
+                dbc.Col([
+                        html.Iframe(
+                            id = 'chloropleth',
+                            srcDoc = chloropleth.to_html(),
+                            style={'border-width': '0', 'width': '100%', 'height': '400px'}
+                        )
+                    ])
+            ])
         ]
     )
     
