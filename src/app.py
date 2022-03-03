@@ -5,6 +5,7 @@ import numpy as np
 import dash_bootstrap_components as dbc
 from dash import Dash, dcc, html
 from dash.dependencies import Input, Output
+from vega_datasets import data as dt
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
@@ -19,6 +20,27 @@ server = app.server
 data = pd.read_csv("data/processed/survey.csv")
 data = data.drop(data[data["Q8"] == "Female"].index)
 logo = "https://cdn-icons-png.flaticon.com/512/2017/2017231.png"
+
+# static sources needed for map plot
+source = dt.unemployment.url
+states = alt.topo_feature(dt.us_10m.url, 'states')
+us_state_abbrev = {
+'Alabama': 'AL', 'Alaska': 'AK', 'Arizona': 'AZ', 'Arkansas': 'AR', 'California': 'CA', 'Colorado': 'CO',
+'Connecticut': 'CT', 'Delaware': 'DE', 'Florida': 'FL', 'Georgia': 'GA', 'Hawaii': 'HI', 'Idaho': 'ID',
+'Illinois': 'IL', 'Indiana': 'IN', 'Iowa': 'IA', 'Kansas': 'KS', 'Kentucky': 'KY', 'Louisiana': 'LA',
+'Maine': 'ME', 'Maryland': 'MD', 'Massachusetts': 'MA', 'Michigan': 'MI', 'Minnesota': 'MN', 'Mississippi': 'MS',
+'Missouri': 'MO', 'Montana': 'MT', 'Nebraska': 'NE', 'Nevada': 'NV', 'New Hampshire': 'NH', 'New Jersey': 'NJ',
+'New Mexico': 'NM', 'New York': 'NY', 'North Carolina': 'NC', 'North Dakota': 'ND', 'Ohio': 'OH', 'Oklahoma': 'OK',
+'Oregon': 'OR', 'Pennsylvania': 'PA', 'Rhode Island': 'RI', 'South Carolina': 'SC', 'South Dakota': 'SD',
+'Tennessee': 'TN', 'Texas': 'TX', 'Utah': 'UT', 'Vermont': 'VT', 'Virginia': 'VA', 'Washington': 'WA',
+'West Virginia': 'WV', 'Wisconsin': 'WI', 'Wyoming': 'WY'}
+
+state_id_dict = {'AL': 1, 'AK': 2, 'AZ': 4, 'AR': 5, 'CA': 6, 'CO': 8, 'CT': 9, 'DE': 10,
+    'DC': 11, 'FL': 12, 'GA': 13, 'HI': 15, 'ID': 16, 'IL': 17, 'IN': 18, 'IA': 19, 'KS': 20,
+    'KY': 21, 'LA': 22, 'ME': 23, 'MD': 24, 'MA': 25, 'MI': 26, 'MN': 27, 'MS': 28, 'MO': 29,
+    'MT': 30, 'NE': 31, 'NV': 32, 'NH': 33, 'NJ': 34, 'NM': 35, 'NY': 36, 'NC': 37, 'ND': 38,
+    'OH': 39, 'OK': 40, 'OR': 41, 'PA': 42, 'RI': 44, 'SC': 45, 'SD': 46, 'TN': 47, 'TX': 48,
+    'UT': 49, 'VT': 50, 'VA': 51, 'WA': 53, 'WV': 54, 'WI': 55, 'WY': 56, 'PR': 72}
 
 # data wrangling for plots
 
@@ -48,6 +70,14 @@ benefit["Benefit"] = benefit["Q8"].astype(int)
 benefit["Pctg"] = round((benefit["Benefit"] / np.sum(benefit["Benefit"]))*100, 2)
 benefit["Count"] = benefit["Q8"]
 benefit["Answer"] = benefit.index
+
+# data wrangling for map view
+surv_data = data.loc[data['Country'] == "United States"]
+surv_data.dropna(subset = ["state"], inplace=True)
+surv_data['state_id'] = surv_data['state'].map(state_id_dict).fillna(surv_data['state'])
+surv_data_grouped = surv_data.groupby(['state', 'state_id'], as_index=False)['Q3'].value_counts(normalize=True)
+surv_data_grouped = pd.DataFrame(surv_data_grouped)
+surv_data_grouped = surv_data_grouped.loc[surv_data_grouped['Q3'] == 'Yes']
 
 
 def tabs():
@@ -243,17 +273,41 @@ def tab2():
     
 def tab3():
     """Layout structure for Map View"""
+
+    chloropleth = alt.Chart(states).mark_geoshape().encode(
+        color='proportion:Q',
+        tooltip=['state:N', 'proportion:Q']
+    ).transform_lookup(
+        lookup='id',
+        from_=alt.LookupData(surv_data_grouped, 'state_id', ['state', 'proportion'])
+    ).project(
+        type='albersUsa'
+    ).properties(
+        width=500,
+        height=300,
+        title="Proportion of Those who have Seeked Mental Health Help by State"
+    )
+
     map_view = html.Div(
         [
-            dbc.Col([
+            dbc.Row([
+                dbc.Col([
                     html.H1(children="Mental Health in Tech Dashboard"), 
                     html.Br(),
                     html.P(
-                    children=[
-                        html.H3("Controls"),
-                    ]
-                )
-            ], width=2)           
+                        children=[
+                            html.H3("Controls"),
+                        ]
+                    )
+                ], width=2),
+                dbc.Col([
+                        html.Iframe(
+                            id = 'chloropleth',
+                            srcDoc = chloropleth.to_html(),
+                            style={'border-width': '0', 'width': '100%', 'height': '400px'}
+                        )
+                    ])
+            ])
         ]
     )
     
