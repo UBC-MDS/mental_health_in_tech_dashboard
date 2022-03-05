@@ -8,7 +8,6 @@ Here is the link to our Horaku deployment:
 
 [Web App](https://dsci-532-mental-health-python.herokuapp.com/)
 
-=======
 Demo
 ----
 ![Dashboard-GIF](https://github.com/UBC-MDS/mental_health_in_tech_dashboard/blob/main/sketch/Demo.gif)
