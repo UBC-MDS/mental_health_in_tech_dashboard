@@ -9,6 +9,7 @@ channels:
 dependencies:
   - ipykernel
   - ipython>=7.15
+  - gunicorn
   - scipy
   - pandas
   - numpy
