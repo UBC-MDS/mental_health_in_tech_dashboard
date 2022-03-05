@@ -22,13 +22,13 @@ The app will consists of three main pages - Summary Overview, Interactive View a
 
 ### Summary Overview
 
-In Summary View, four plots are presented along with some information on the dataset and data source (left panels). The graphs mainly show the summary statistics in the form of a bar or pie chart and include information about the gender and age of the employees as well as company size and whether the employee has knowledge about the mental health benefits offered by the employer. Suitable plots are presented and the user can comrehensively look at the variations in age, gender, company size and relates those to the mental health issue in tech industry. 
+In Summary View, four plots are presented along with some information on the dataset and data source (left panels). The graphs mainly show the summary statistics in the form of a bar or pie chart and include information about the gender and age of the employees as well as company size and whether the employee has knowledge about the mental health benefits offered by the employer. Suitable plots are presented and the user can comprehensively look at the variations in age, gender, company size and relates those to the mental health issue in tech industry. 
 
 ![Page1](sketch/Tab1.png)
 
 ### Interactive View
 
-In ths view, an interactive plot is presented to show the percentage of companies that offer mental health befit. This is an interactive graph, and the user can select the survery question, age, gender, and company size from the dropdown menu / radio buttons in left panel, and examine how the distribution changes. The user has also the option to see the data in either pie or bar plot. 
+In ths view, an interactive plot is presented to show the percentage of companies that offers mental health benefits. This is an interactive graph, and the user can select the survery question, age, gender, and company size from the dropdown menu / radio buttons in left panel, and examine how the distribution changes. The user has also the option to see the data in either pie or bar plot. 
 
 ![Page2](sketch/Tab2.png)
 
