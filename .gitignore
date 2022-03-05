@@ -1,5 +1,5 @@
 team-contract.md
 team-contract.pdf
-.ipynb
+*.ipynb
 .ipynb_checkpoints/
 .virtual_documents/

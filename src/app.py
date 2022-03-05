@@ -57,15 +57,19 @@ surv_data_grouped = pd.DataFrame(surv_data_grouped)
 surv_data_grouped = surv_data_grouped.loc[surv_data_grouped['Q3'] == 'Yes']
 
 
-def pie_chart(df, col, colors, title=None):
+def pie_chart(df, col, colors=None, title=None):
     """Create Pie Chart"""
     df_p = pd.DataFrame(df.groupby(col)[col].agg("count") / len(df))
     if title == None:
         title = col
     fig = go.Figure()
     fig.add_trace(go.Pie(labels=df_p.index, values=df_p.iloc[:,0]))
-    fig.update_traces(hoverinfo='label+percent', textinfo='label+percent',
-                      marker=dict(colors=colors))
+    if colors == None:
+        fig.update_traces(hoverinfo='label+percent', textinfo='label+percent')
+    else:
+        fig.update_traces(hoverinfo='label+percent', textinfo='label+percent',
+                  marker=dict(colors=colors))
+        
     fig.update_layout(title=f'<b>{title}</b>', title_x=0.5,)
     fig.update_layout(
     margin=dict(l=20, r=20, t=100, b=50)
@@ -78,6 +82,7 @@ def bar_chart(df, col, orientation="h", title=None, order=None):
     df_p = pd.DataFrame(df.groupby(col)[col].agg("count") / len(df))
     if order != None:
         df_p = df_p.reindex(index = order)
+        df_p = df_p.dropna()
 
     if title == None:
         title = col
@@ -260,7 +265,7 @@ def tab2():
                     dbc.Toast([
                         html.Iframe(
                             id = 'interactive',
-                            #style = {'border-width': '500', 'width': '200%', 'height': '800px'}
+                            style = {'border-width': '500', 'width': '100%', 'height': '800px'}
                         )
                         #dcc.Graph(id="interactive"),
                         ], style={"width": "90%","height": "100%"}),
@@ -367,43 +372,23 @@ def select_tab(active_tab):
 )
 
 def interactive(question, chart_type, gender, size, age):
-    data = pd.read_csv("data/processed/survey.csv")
+    data = pd.read_csv("data/processed/survey.csv")   
+    df_p = data[data.Gender.isin(gender) &
+          data.Q5.isin(size) &
+          data.Age.isin(age)]
 
-    df = data[data.Gender.isin(gender) &
-              data.Q5.isin(size) &
-              data.Age.isin(age)]
-    
-    df_pie = pd.DataFrame(df[question].value_counts())
-    df_pie["Count"] = df_pie.iloc[:, 0].astype(int)
-    df_pie["Pctg"] = round(df_pie .iloc[:, 0] / np.sum(df_pie.iloc[:, 0]) * 100, 2)
-    df_pie["Answer"] = df_pie.index
+    qdict = {"Q14": "Do you think: discussing a mental health issue <br> with your employer would have <br> negative consequences?",
+         "Q15": "Do you think that discussing a physical health issue <br> with your employer would have negative consequences?",
+         "Q21": "Have you heard of or observed negative consequences <br> for coworkers with mental health <br> conditions in your workplace?"}    
+
     if chart_type == "Bar":
-        chart = alt.Chart(df).mark_bar().encode(
-            alt.X("count():Q"),
-            alt.Y(f"{question}:N", sort = "-x")
-        ).properties(
-        title=qdict[question]
-        
-    )
-        return chart.to_html()
+        order = ["Yes", "No", "Maybe"]
+        fig = bar_chart(df_p, question, orientation="v", title=qdict[question], order=order)
+        return fig.to_html()
     
-    if chart_type == "Pie":
-        chart = alt.Chart(df_pie).mark_arc(outerRadius = 100).encode(
-            theta = alt.Theta("Count:Q", stack = True), 
-            color = alt.Color("Answer:N")
-        )
-        text = chart.mark_text(radius = 140, size = 20).encode(
-            text = "Pctg:Q",
-            color = "Answer"
-        ).properties(
-        width=500,
-        height=300,
-        title=question
-    )
-
-        chart = chart + text
-        
-        return chart.to_html()
+    if chart_type == "Pie":       
+        fig = pie_chart(df_p, question, colors=['skyblue','navy','lightgray'], title=qdict[question])        
+        return fig.to_html()
 
 
 if __name__ == '__main__':
