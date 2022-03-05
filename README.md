@@ -2,11 +2,16 @@
 
 The Mental Health in Tech Dashboard is created using [Dash](https://plotly.com/dash/) and [Python](https://www.python.org/). The provides interactive visuals for users to explore the [2014 Mental Health in Tech Survey](https://osmihelp.org/research) results and interaction of the different variables to see how mental health affect the worker in the tech worksplace as well as how well companies are prepared to help workers regarding mental health issues.
 
-Web App Link
+Link to Application
 ------------
 Here is the link to our Horaku deployment:
 
 [Web App](https://dsci-532-mental-health-python.herokuapp.com/)
+
+=======
+Demo
+----
+![Dashboard-GIF](https://github.com/UBC-MDS/mental_health_in_tech_dashboard/blob/main/sketch/Demo.gif)
 
 Motivation
 ---------

@@ -1,9 +1,6 @@
 import pandas as pd
-import altair as alt
 import numpy as np
 
-import json
-from vega_datasets import data as dt
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
@@ -44,7 +41,9 @@ def pie_chart(df, col, colors=None, title=None):
         
     fig.update_layout(title=f'<b>{title}</b>', title_x=0.5,)
     fig.update_layout(
-    margin=dict(l=20, r=20, t=100, b=50)
+    width = 500,
+    height = 300,
+    margin=dict(l=0, r=0, t=100, b=0)
     )
     return fig
 
@@ -77,7 +76,9 @@ def bar_chart(df, col, orientation="h", title=None, order=None):
     fig.update_traces(marker_color='lightskyblue')
     fig.update_layout(title=f'<b>{title}</b>', title_x=0.5)#, autosize=True)
     fig.update_layout(
-    margin=dict(l=20, r=20, t=100, b=50)
+    width = 500,
+    height = 300,
+    margin=dict(l=0, r=0, t=100, b=0)
     )
     
     return fig
@@ -144,32 +145,44 @@ def tab1():
                                 href="https://www.kaggle.com/osmi/mental-health-in-tech-2016",
                                 title="Data set")
                             ]),
-                    ],color='lightskyblue'),
+                    ]),
                 ], width=3,style={'margin-right': '0px', 'margin-left': '20px'}),
                 dbc.Col([            
                     dbc.Row([
                              dbc.Col([
                                 dbc.Toast([
-                                    dcc.Graph(id="pg", figure=pg),
-                                    ], style={"width": "90%","height": "100%"}),
-                                ],className="chart-box",style={'margin-right': '0px', 'margin-left': '0px'}),
+                                    #dcc.Graph(id="pg", figure=pg),
+                                    html.Iframe(
+                                        id="pg", srcDoc=pg.to_html()
+                                        ,style = {'width': '100%', 'height': '350px'}
+                                    )], style={"width": "100%","height": "100%"}),
+                                ],className="chart-box",style={'margin-bottom': '20px','margin-right': '50px', 'margin-left': '-50px'}),
                              dbc.Col([
                                 dbc.Toast([
-                                    dcc.Graph(id="bar_age", figure=bar_age),
-                                    ], style={"width": "90%","height": "100%"}),
-                                ],className="chart-box",style={'margin-right': '0px', 'margin-left': '0px'}),
+                                    #dcc.Graph(id="bar_age", figure=bar_age),
+                                    html.Iframe(
+                                        id="bar_age", srcDoc=bar_age.to_html()
+                                        ,style = {'width': '100%', 'height': '350px'}
+                                    )], style={"width": "100%","height": "100%"}),
+                                ],className="chart-box",style={'margin-bottom': '20px','margin-right': '50px', 'margin-left': '-50px'}),
                             ]),
                     dbc.Row([    
                              dbc.Col([
                                 dbc.Toast([
-                                    dcc.Graph(id="bar_size", figure=bar_size),
-                                    ], style={"width": "90%","height": "100%"}),
-                               ],className="chart-box",style={'margin-right': '0px', 'margin-left': '0px'}),
+                                    #dcc.Graph(id="bar_size", figure=bar_size),
+                                    html.Iframe(
+                                        id="bar_size", srcDoc=bar_size.to_html()
+                                        ,style = {'width': '100%', 'height': '350px'}
+                                    )], style={"width": "100%","height": "100%"}),
+                               ],className="chart-box",style={'margin-right': '50px', 'margin-left': '-50px'}),
                              dbc.Col([
                                 dbc.Toast([
-                                    dcc.Graph(id="pb", figure=pb),
-                                    ], style={"width": "90%","height": "100%"}),
-                               ],className="chart-box",style={'margin-right': '0px', 'margin-left': '0px'}),
+                                    #dcc.Graph(id="pb", figure=pb),
+                                    html.Iframe(
+                                        id="pb", srcDoc=pb.to_html()
+                                        ,style = {'width': '100%', 'height': '350px'}
+                                    )], style={"width": "100%","height": "100%"}),
+                               ],className="chart-box",style={'margin-right': '50px', 'margin-left': '-50px'}),
                             ]),
                     ]),
                 ]),
@@ -210,7 +223,7 @@ def tab2():
                                 dcc.RadioItems(
                                     id = 'chart-widget',
                                     options = ["Pie", "Bar"],
-                                    value = "Bar",
+                                    value = "Pie",
                                     inline=False,
                                     labelStyle={'display': 'block'},
                                 ),
@@ -251,12 +264,13 @@ def tab2():
                 ], width=5,style={'margin-right': '0px', 'margin-left': '20px'}),
                 dbc.Col([
                     dbc.Toast([
+                        html.H3(id='display-question'),
                         html.Iframe(
                             id = 'interactive',
-                            style = {'border-width': '500', 'width': '100%', 'height': '500px'}
+                            style = {'width': '100%', 'height': '700px'}
                         )
-                        ], style={"width": "90%","height": "100%"}),
-                        ],className="chart-box",style={'margin-right': '0px', 'margin-left': '0px'}),
+                        ], style={"width": "100%","height": "800px"}),
+                        ],className="chart-box",style={'margin-right': '0px', 'margin-left': '-150px'}),    
                     ]),
                 ])
             ])
@@ -297,20 +311,19 @@ def tab3():
                                     optionHeight = 100),
                                 html.Br(),
                                 html.H4("Response"),
-                                dcc.Dropdown(
-                                    id = 'answer-widget',
-                                    ),
+                                dcc.Dropdown(id = 'answer-widget',),
                             ]),
                         ]),
-                ], width=5,style={'margin-right': '0px', 'margin-left': '20px'}),
+                ], width=5,style={'margin-right': '0px', 'margin-left': '-150px'}),
                 dbc.Col([
                     dbc.Toast([
+                        html.H3(id='display-question2'),
                         html.Iframe(
                             id = 'interactive_map',
-                            style = {'border-width': '500', 'width': '100%', 'height': '500px'}
+                            style = {'width': '100%', 'height': '700px'}
                         )
-                        ], style={"width": "90%","height": "100%"}),
-                        ],className="chart-box",style={'margin-right': '0px', 'margin-left': '0px'}),
+                        ], style={"width": "100%","height": "800px"}),
+                        ],className="chart-box",style={'margin-right': '0px', 'margin-left': '-150px'}),                  
                     ]),
                 ])
             ])
@@ -340,10 +353,10 @@ navbar = dbc.Navbar(
 )
   
 app.layout = html.Div([
-    dbc.Row([
-        navbar,
-        tabs(),
-    ])
+        dbc.Row([
+            navbar,
+            tabs(),
+        ])
 ])
 
 
@@ -358,7 +371,15 @@ def select_tab(active_tab):
     elif active_tab == "tab-3":
         return tab3()
 
-       
+@app.callback(
+Output('display-question', 'children'),
+    inputs = dict(map_question = Input('q-widget', "value"))
+)
+def set_display_children(map_question):
+    title = qdict[map_question]
+    return title
+
+
 @app.callback(
     Output("interactive", component_property='srcDoc'),
     inputs = dict(question = Input('q-widget', "value"),
@@ -384,20 +405,16 @@ def interactive(question, chart_type, gender, size, age):
     df_p = data[data.Gender.isin(gender) &
           data.Q5.isin(size) &
           data.Age.isin(age)]
-   
-    title = qdict[question]
-    titlesplit = title.split(" ")
-    title_n = len(titlesplit)//3
-    title = ' '.join(titlesplit[:title_n]) + " <br> " + ' '.join(titlesplit[title_n:-title_n]) + " <br> " + ' '.join(titlesplit[-title_n:])
-    
-   
+      
     if chart_type == "Bar":
         order = ["Yes", "No", "Maybe"]
-        fig = bar_chart(df_p, question, orientation="v", title=title, order=order)
+        fig = bar_chart(df_p, question, orientation="v", order=order)
+        fig.update_layout(margin=dict(l=0, r=0, t=50, b=0),width = 800, height = 500,title="")
         return fig.to_html()
     
     if chart_type == "Pie":       
-        fig = pie_chart(df_p, question, colors=['skyblue','navy','lightgray'], title=title)        
+        fig = pie_chart(df_p, question, colors=['skyblue','navy','lightgray'])    
+        fig.update_layout(margin=dict(l=0, r=0, t=50, b=0),width = 800, height = 500,title="")
         return fig.to_html()
 
   
@@ -405,15 +422,36 @@ def interactive(question, chart_type, gender, size, age):
     Output('answer-widget', 'options'),
     [Input('map_q-widget', 'value')]
 )
-def update_date_dropdown(name):
+
+def update_dropdown(name):
     return [{'label': i, 'value': i} for i in answerDict[name]]
+
+@app.callback(
+    Output('display-question2', 'children'),
+    inputs = dict(map_question = Input('map_q-widget', "value"),
+                  answer = Input('answer-widget', "value"))
+)
+    
+def set_display_children2(map_question, answer):
+    country = 'United States'
+    data_us = data[data.Country == country]
+
+    if type(answer) == str:
+        answer=[answer]
+
+    if answer is None:
+        answer = ["Yes","Very difficult"]
+        answer = [data_us[data_us[map_question].isin(answer)][map_question][0]]
+        
+    title = qdict[map_question]
+    title = title + ' (' + ', '.join(answer) + ')'
+    return title
 
 @app.callback(
     Output("interactive_map", component_property='srcDoc'),
     inputs = dict(map_question = Input('map_q-widget', "value"),
                   answer = Input('answer-widget', "value"))
 )
-
 
 def interactive_map(map_question, answer):
     us_states = pd.DataFrame({'name':['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','NewJersey','NewMexico','NewYork','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','RhodeIsland','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington','West Virginia','Wisconsin','Wyoming'],
@@ -452,18 +490,14 @@ def interactive_map(map_question, answer):
     
     data_map = data_map.replace(0.0, np.NaN)
     
-    title = qdict[map_question]
-    titlesplit = title.split(" ")
-    title_n = len(titlesplit)//2
-    title = ' '.join(titlesplit[:title_n]) + " <br> " + ' '.join(titlesplit[-title_n:])
-    title = '<b>' + title + '</b> <br> (' + ', '.join(answer) + ')'
-    
-    fig = go.Figure(data=go.Choropleth(locations=data_map.index,z = data_map['Percent'],locationmode = 'USA-states',colorscale = 'Reds',colorbar_title = "Percent",))
-    fig.update_layout(title=f'{title}', title_x=0.5)
-    fig.update_layout(margin=dict(l=20, r=20, t=100, b=50),#, width = 800, height = 800,
+    fig = go.Figure(data=go.Choropleth(locations=data_map.index,z = data_map['Percent'],locationmode = 'USA-states',colorscale = 'Blues',colorbar_title = "Percent",
+                        text=data_map.apply(lambda row: f"{row['Percent']:0.2f}%<br>{row['name']}", axis=1),
+                        hoverinfo="text"))
+    fig.update_layout(margin=dict(l=0, r=0, t=0, b=0), 
+                        width = 900, height = 600,
                       geo_scope='usa')
     return fig.to_html()
     
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server()
