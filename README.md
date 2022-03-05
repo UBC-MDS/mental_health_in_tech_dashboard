@@ -6,7 +6,7 @@ Link to Application
 ------------
 [Web App](https://dsci-532-mental-health-python.herokuapp.com/)
 
-#![Dashboard-GIF](https://github.com/UBC-MDS/cherry_blossom_tracker/blob/main/docs/screen-capture.gif?raw=true)
+#![Dashboard-GIF](https://github.com/UBC-MDS/mental_health_in_tech_dashboard/blob/main/sketch/Demo.gif)
 
 Relevance
 ---------
