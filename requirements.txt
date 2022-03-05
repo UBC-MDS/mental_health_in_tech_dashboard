@@ -1,0 +1,13 @@
+ipykernel
+ipython>=7.15
+scipy
+pandas
+matplotlib
+gunicorn
+scikit-learn>=1.0.2  
+vega_datasets
+altair
+plotly
+pip
+dash
+dash_bootstrap_components
