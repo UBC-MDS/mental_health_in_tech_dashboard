@@ -207,10 +207,12 @@ def tab2():
                             html.P([
                                 html.H4("Plot type"),
                                 html.Br(),
-                                dcc.Dropdown(
+                                dcc.RadioItems(
                                     id = 'chart-widget',
+                                    options = ["Pie", "Bar"],
                                     value = "Bar",
-                                    options = [{'label': t, 'value': t} for t in chart_tpye]),
+                                    inline=False
+                                ),
                                 html.Br(),
                                 
                                 html.H4("Survey questions"),
@@ -259,9 +261,8 @@ def tab2():
             ])
 
     return layout
-    
-    
-fnameDict = {
+
+answerDict = {
     "Q11":["Yes","No","Dont' know"],
     "Q12":["Yes","No","Dont' know"],
     "Q13":["Very difficult","Somewhat difficult","Somewhat easy","Very easy","Dont' know"],
@@ -274,9 +275,6 @@ fnameDict = {
     "Q20":["Yes","No","Dont' know"],
     "Q21":["Yes","No"]
 }  
-
-names = list(fnameDict.keys())
-
 
 def tab3():
     """Layout structure for Interactive View"""
@@ -300,7 +298,6 @@ def tab3():
                                 html.H4("Response"),
                                 dcc.Dropdown(
                                     id = 'answer-widget',
-                                    #value = list(fnameDict.values())[0],
                                     ),
                             ]),
                         ]),
@@ -408,7 +405,7 @@ def interactive(question, chart_type, gender, size, age):
     [Input('map_q-widget', 'value')]
 )
 def update_date_dropdown(name):
-    return [{'label': i, 'value': i} for i in fnameDict[name]]
+    return [{'label': i, 'value': i} for i in answerDict[name]]
 
 @app.callback(
     Output("interactive_map", component_property='srcDoc'),
