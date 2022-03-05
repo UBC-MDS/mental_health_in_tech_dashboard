@@ -4,7 +4,7 @@ The Mental Health in Tech Dashboard is created using [Dash](https://plotly.com/d
 
 Link to Application
 ------------
-Here is the link to our Horaku deployment:
+Here is the link to our Heroku deployment:
 
 [Web App](https://dsci-532-mental-health-python.herokuapp.com/)
 
