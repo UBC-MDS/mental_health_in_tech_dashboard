@@ -40,7 +40,7 @@ The Map View is perhaps the most interesting and informative plot among all. A s
 
 Developer Contribution
 -----------
-The egenral procedures to contribute to the current dashboard is outlined in the contributing file. If ineterested, there are some potentials that other developers can work on. For example, the original datset has as many as 27 features, but in this dashboard we have only included 7-8 of the fetures. There are also some romms for further improvements in our Map View. The current view works fine but the authors feel like it can be modified to include many more information. 
+The egenral procedures to contribute to the current dashboard are outlined in the contributing file. If ineterested, there are some potentials that other developers can work on. For example, the original datset has as many as 27 features, but in the current dashboard we have only included 7-8 of the features. There are also rooms for further improvements in our Map View. The current view works fine but the authors feel like it can be modified to include much more information. 
 
 App Installation
 -----------
