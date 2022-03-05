@@ -22,25 +22,25 @@ The app will consists of three main pages - Summary Overview, Interactive View a
 
 ### Summary Overview
 
-In Summary View, four plots are presented along with some information on the dataset and data source (left panels). The graphs mainly show the summary statistics in the form of a bar or pie chart and include information about the gender and age of the employees as well company size and whether the employee has knowledge about the mental health benefits offered by the employer. Suitable plots are presented and the user can comrehensively look at the variations in age, gender, company size and relates those to the mental health issue in tech industry. 
+In Summary View, four plots are presented along with some information on the dataset and data source (left panels). The graphs mainly show the summary statistics in the form of a bar or pie chart and include information about the gender and age of the employees as well as company size and whether the employee has knowledge about the mental health benefits offered by the employer. Suitable plots are presented and the user can comrehensively look at the variations in age, gender, company size and relates those to the mental health issue in tech industry. 
 
 ![Page1](sketch/Tab1.png)
 
 ### Interactive View
 
-In ths view, an interactive plot is presented to show the percentage of copanies that offer mental health befit. Thsi is an interactive graph, and the user can select the survery question, age, gender, and company size from the dropdown menu / radio buttons in left panel, and examine how the plot changes. The user has also the option to see the data in either pie or bar plot. 
+In ths view, an interactive plot is presented to show the percentage of companies that offer mental health befit. This is an interactive graph, and the user can select the survery question, age, gender, and company size from the dropdown menu / radio buttons in left panel, and examine how the distribution changes. The user has also the option to see the data in either pie or bar plot. 
 
 ![Page2](sketch/Tab2.png)
 
 ### Map View
 
-The Map View is perhaps the most interesting and informative plot among all. A simple interactive map is presented showcasing how the survey response variables differs across each different states in US. The user can select the appropriate response and variables from the left panel and by hovering the mouse on the map, the quantitave statistics are shown. The distribution of responses is also shown on the map using color scheme. 
+The Map View is perhaps the most interesting and informative plot among all. A simple interactive map is presented showcasing how the survey response variables differ across each different states in US. The user can select the appropriate response and variables from the left panel and by hovering the mouse on the map, the quantitave statistics are displayed. The distribution of responses is also shown on the map using color scheme. 
 
 ![Page3](sketch/Tab3.png)
 
 Developer Contribution
 -----------
-The egenral procedures to contribute to the current dashboard are outlined in the contributing file. If ineterested, there are some potentials that other developers can work on. For example, the original datset has as many as 27 features, but in the current dashboard we have only included 7-8 of the features. There are also rooms for further improvements in our Map View. The current view works fine but the authors feel like it can be modified to include much more information. 
+The general procedures to contribute to the current dashboard are outlined in the contributing file. If ineterested, there are some potentials that other developers can work on. For example, the original datset has as many as 27 features, but in the current dashboard we have only included 7-8 of the features. There are also rooms for further improvements in our Map View. The current view works fine but the authors feel like it can be modified to include much more information. 
 
 App Installation
 -----------
