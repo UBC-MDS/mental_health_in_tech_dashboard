@@ -24,19 +24,19 @@ The app will consists of three main pages - Summary Overview, Interactive View a
 
 In Summary View, four plots are presented along with some information on the dataset and data source (left panels). The graphs mainly show the summary statistics in the form of a bar or pie chart and include information about the gender and age of the employees as well company size and whether the employee has knowledge about the mental health benefits offered by the employer. Suitable plots are presented and the user can comrehensively look at the variations in age, gender, company size and relates those to the mental health issue in tech industry. 
 
-![Page1](sketch/Tab1.jpg)
+![Page1](sketch/Tab1.png)
 
 ### Interactive View
 
 In ths view, an interactive plot is presented to show the percentage of copanies that offer mental health befit. Thsi is an interactive graph, and the user can select the survery question, age, gender, and company size from the dropdown menu / radio buttons in left panel, and examine how the plot changes. The user has also the option to see the data in either pie or bar plot. 
 
-![Page2](sketch/Tab2.jpg)
+![Page2](sketch/Tab2.png)
 
 ### Map View
 
 The Map View is perhaps the most interesting and informative plot among all. A simple interactive map is presented showcasing how the survey response variables differs across each different states in US. The user can select the appropriate response and variables from the left panel and by hovering the mouse on the map, the quantitave statistics are shown. The distribution of responses is also shown on the map using color scheme. 
 
-![Page3](sketch/Tab3.jpg)
+![Page3](sketch/Tab3.png)
 
 Developer Contribution
 -----------
