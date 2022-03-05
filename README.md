@@ -6,7 +6,9 @@ Link to Application
 ------------
 [Web App](https://dsci-532-mental-health-python.herokuapp.com/)
 
-#![Dashboard-GIF](https://github.com/UBC-MDS/mental_health_in_tech_dashboard/blob/main/sketch/Demo.gif)
+Demo
+----
+![Dashboard-GIF](https://github.com/UBC-MDS/mental_health_in_tech_dashboard/blob/main/sketch/Demo.gif)
 
 Relevance
 ---------
