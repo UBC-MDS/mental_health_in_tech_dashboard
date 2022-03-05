@@ -211,7 +211,8 @@ def tab2():
                                     id = 'chart-widget',
                                     options = ["Pie", "Bar"],
                                     value = "Bar",
-                                    inline=False
+                                    inline=False,
+                                    labelStyle={'display': 'block'},
                                 ),
                                 html.Br(),
                                 
