@@ -1,9 +1,6 @@
 import pandas as pd
-import altair as alt
 import numpy as np
 
-import json
-from vega_datasets import data as dt
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
@@ -493,7 +490,7 @@ def interactive_map(map_question, answer):
     
     data_map = data_map.replace(0.0, np.NaN)
     
-    fig = go.Figure(data=go.Choropleth(locations=data_map.index,z = data_map['Percent'],locationmode = 'USA-states',colorscale = 'Reds',colorbar_title = "Percent",
+    fig = go.Figure(data=go.Choropleth(locations=data_map.index,z = data_map['Percent'],locationmode = 'USA-states',colorscale = 'Blues',colorbar_title = "Percent",
                         text=data_map.apply(lambda row: f"{row['Percent']:0.2f}%<br>{row['name']}", axis=1),
                         hoverinfo="text"))
     fig.update_layout(margin=dict(l=0, r=0, t=0, b=0), 
@@ -503,4 +500,4 @@ def interactive_map(map_question, answer):
     
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server()
