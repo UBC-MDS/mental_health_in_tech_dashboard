@@ -6,7 +6,7 @@ Link to Application
 ------------
 [Web App](https://dsci-532-mental-health-python.herokuapp.com/)
 
-#![Dashboard-GIF](https://github.com/UBC-MDS/mental_health_in_tech_dashboard/blob/main/sketch/Demo.gif)
+#![Dashboard-DEMO](https://github.com/UBC-MDS/mental_health_in_tech_dashboard/blob/main/sketch/Demo.gif)
 
 Relevance
 ---------
@@ -20,21 +20,19 @@ The app will consists of three main pages - Survey Overview, Variable view and a
 
 It will contains description of the app and the survey. Some graphs will be used to show summary statistics regarding the survey independent responses in the form of bar charts or pie charts. There will be two major panels where the left panel provides the control for variable selection using dropdown menu. From a dropdown list user can filter out survey response questions (related to mental health) and a range of independent variable (demographic, company related) which a distribution of the responses will be show as bar charts or pie/donut charts on the right panel. 
 
+![Page1](sketch/Tab1.jpg)
+
 ### Variable View
 
 This is the page which provides the visualization on the right panel to show the interaction between survey independent variables against survey response variables that related to worker's mental health. Most of the charts will be shown as bar charts which the response distribution of the survey response variable can be compare across different groups within the independent variables which can both be selected from the dropdown menu / radio buttons in left panel.
+
+![Page2](sketch/Tab2.jpg)
 
 ### Map View
 
 A simple map which showcase how the survey response variables differs across each country/states (for US) where the distribution of the responses will be shown using different color scales for each location and simple response and variable selection will be shown on the left panel.
 
-Example sketch of the Mental Health in Tech Dashboard:
-
-![Page1](sketch/Page1.jpg)
-
-![Page2](sketch/Page2.jpg)
-
-![Page3](sketch/Page3.jpg)
+![Page3](sketch/Tab3.jpg)
 
 Requirments
 -----------
