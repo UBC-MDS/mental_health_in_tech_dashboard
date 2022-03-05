@@ -164,7 +164,7 @@ Timestamp,Age,Gender,Country,state,Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10,Q11,Q12,Q13,Q1
 8/27/2014 12:44,25-34,Male,United States,CA,No,No,No,Never,More than 1000,No,Yes,Yes,No,No,Yes,Don't know,Don't know,No,No,Some of them,Some of them,No,No,Don't know,No,
 8/27/2014 12:45,25-34,Male,United States,MA,No,Yes,No,Rarely,6-25,No,Yes,Don't know,No,No,No,Don't know,Don't know,Maybe,No,Some of them,Yes,No,No,Don't know,No,
 8/27/2014 12:46,25-34,Female,United States,WA,Yes,Yes,Yes,Sometimes,1-5,No,Yes,No,Yes,Yes,Yes,Yes,Very difficult,No,No,Some of them,Yes,No,Yes,Yes,No,Many of these questions become irrelevant once 'Yes' is selected for 'Are you self-employed'.  It would be preferable for there to be a 'Not Relevant' option on these.
-8/27/2014 12:47,25-34,Woman,United Kingdom,NA,Yes,Yes,No,,1-5,Yes,Yes,No,Yes,No,No,Yes,Somewhat easy,No,No,Yes,Yes,No,Maybe,Yes,No,as a UK-based company we don't have any medical provisions as it's all provided on the National Health Service (for now!) However if we do need to take days off for any kind of health problems everyone is understanding :)
+8/27/2014 12:47,25-34,Female,United Kingdom,NA,Yes,Yes,No,,1-5,Yes,Yes,No,Yes,No,No,Yes,Somewhat easy,No,No,Yes,Yes,No,Maybe,Yes,No,as a UK-based company we don't have any medical provisions as it's all provided on the National Health Service (for now!) However if we do need to take days off for any kind of health problems everyone is understanding :)
 8/27/2014 12:48,25-34,Male,United States,MN,No,No,No,Never,26-100,No,Yes,No,No,No,No,Don't know,Very easy,Maybe,No,Some of them,Some of them,No,Maybe,Don't know,No,
 8/27/2014 12:48,35-44,Male,United States,CA,No,No,No,,6-25,No,Yes,No,Yes,No,No,Don't know,Very difficult,Maybe,No,Yes,Yes,No,Maybe,No,No,
 8/27/2014 12:48,18-24,Male,Ireland,NA,Yes,Yes,No,Sometimes,1-5,No,Yes,No,No,No,No,Don't know,Very difficult,Yes,No,No,No,No,Maybe,No,No,
@@ -377,7 +377,7 @@ Timestamp,Age,Gender,Country,state,Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10,Q11,Q12,Q13,Q1
 8/27/2014 15:22,45-54,Male,United States,MA,No,No,Yes,Never,26-100,Yes,Yes,Yes,Yes,Don't know,Don't know,Don't know,Don't know,Maybe,No,No,Some of them,No,Maybe,Don't know,No,
 8/27/2014 15:22,25-34,Female,United States,WA,No,No,Yes,Rarely,More than 1000,No,Yes,Yes,Yes,No,No,Yes,Don't know,Yes,Maybe,No,No,No,No,No,No,
 8/27/2014 15:22,25-34,Female,United States,WA,No,Yes,Yes,Sometimes,26-100,Yes,Yes,Don't know,No,No,No,Don't know,Don't know,Maybe,No,Some of them,Yes,No,No,Yes,No,
-8/27/2014 15:22,25-34,woman,United States,NY,No,Yes,Yes,Rarely,More than 1000,No,No,Yes,Yes,Yes,Yes,Yes,Very difficult,Maybe,Maybe,Some of them,Some of them,No,No,Yes,No,I work for a university.
+8/27/2014 15:22,25-34,Female,United States,NY,No,Yes,Yes,Rarely,More than 1000,No,No,Yes,Yes,Yes,Yes,Yes,Very difficult,Maybe,Maybe,Some of them,Some of them,No,No,Yes,No,I work for a university.
 8/27/2014 15:23,25-34,Female,United States,CA,No,Yes,Yes,Never,More than 1000,No,Yes,Yes,Yes,No,Yes,Yes,Don't know,Maybe,No,No,No,No,No,Don't know,No,
 8/27/2014 15:23,35-44,Male,Canada,NA,No,No,Yes,Never,500-1000,No,Yes,Yes,Don't know,No,Don't know,Don't know,Somewhat easy,No,No,Some of them,Some of them,No,No,Don't know,No,
 8/27/2014 15:23,25-34,Male,United States,CA,No,No,Yes,Rarely,More than 1000,No,Yes,Yes,No,Yes,Yes,Yes,Don't know,No,No,Some of them,Yes,No,Maybe,Yes,No,
@@ -549,7 +549,7 @@ Timestamp,Age,Gender,Country,state,Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10,Q11,Q12,Q13,Q1
 8/27/2014 18:18,35-44,Male,United States,CA,No,Yes,Yes,Sometimes,More than 1000,No,Yes,Yes,No,No,Yes,Don't know,Somewhat difficult,Yes,No,Some of them,Yes,No,Yes,No,No,
 8/27/2014 18:22,18-24,Male,United States,CA,No,Yes,No,,More than 1000,No,Yes,Yes,Yes,Yes,Yes,Yes,Don't know,No,No,Some of them,Yes,No,Maybe,Yes,No,
 8/27/2014 18:29,25-34,Male,Germany,NA,No,No,No,Often,26-100,No,Yes,No,No,Don't know,No,Don't know,Somewhat easy,Maybe,No,Some of them,Some of them,Maybe,Yes,Don't know,No,
-8/27/2014 18:39,25-34,Woman,United States,CA,No,Yes,No,,500-1000,No,No,Don't know,Don't know,No,No,Don't know,Don't know,Maybe,No,Some of them,Some of them,No,Maybe,Don't know,No,I'm not aware of anyone with mental health issues at work it's definitely not something that's discussed publicly. There's also a lot of other personal info I don't know about my coworkers so it may just be that we tend not to talk about personal issues.
+8/27/2014 18:39,25-34,Female,United States,CA,No,Yes,No,,500-1000,No,No,Don't know,Don't know,No,No,Don't know,Don't know,Maybe,No,Some of them,Some of them,No,Maybe,Don't know,No,I'm not aware of anyone with mental health issues at work it's definitely not something that's discussed publicly. There's also a lot of other personal info I don't know about my coworkers so it may just be that we tend not to talk about personal issues.
 8/27/2014 18:41,25-34,Male,New Zealand,NA,No,No,Yes,Sometimes,6-25,No,Yes,No,No,No,No,Don't know,Very easy,No,No,Some of them,Yes,Maybe,Yes,Don't know,No,I suffer from mild depression and anxiety.
 8/27/2014 18:43,25-34,Female,Canada,NA,No,No,Yes,Sometimes,1-5,No,Yes,No,No,No,No,Don't know,Don't know,Maybe,No,Some of them,Some of them,No,No,Yes,No,The family history question needs a don't know option.
 8/27/2014 18:56,18-24,Other,United Kingdom,NA,No,No,Yes,Sometimes,26-100,No,Yes,No,Yes,Yes,No,Yes,Somewhat easy,Maybe,No,Some of them,Some of them,No,No,Yes,No,
@@ -1179,7 +1179,7 @@ Timestamp,Age,Gender,Country,state,Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10,Q11,Q12,Q13,Q1
 9/23/2014 20:05,25-34,Male,United States,OH,No,No,No,Never,26-100,No,Yes,No,No,No,Don't know,Don't know,Don't know,No,No,Some of them,Yes,No,Yes,No,Yes,
 9/26/2014 8:45,35-44,Male,China,NA,Yes,No,No,Sometimes,1-5,Yes,Yes,No,Yes,No,No,Don't know,Somewhat easy,No,No,Some of them,Some of them,Maybe,Maybe,Don't know,No,
 9/26/2014 10:05,25-34,Female,Bulgaria,UT,No,No,Yes,Sometimes,26-100,Yes,Yes,No,No,No,No,Don't know,Don't know,Maybe,Maybe,Yes,Some of them,Maybe,No,No,No,
-9/26/2014 21:25,25-34,Woman,United States,NY,No,No,Yes,Sometimes,26-100,No,Yes,Yes,Yes,No,No,Yes,Don't know,Maybe,Maybe,Some of them,No,No,No,No,No,
+9/26/2014 21:25,25-34,Female,United States,NY,No,No,Yes,Sometimes,26-100,No,Yes,Yes,Yes,No,No,Yes,Don't know,Maybe,Maybe,Some of them,No,No,No,No,No,
 9/30/2014 9:19,35-44,Male,United States,CA,No,Yes,Yes,Sometimes,More than 1000,No,No,Yes,Yes,Yes,Yes,Yes,Don't know,Maybe,No,Some of them,No,No,Maybe,No,Yes,
 10/2/2014 21:25,55+,Female,United States,IN,No,Yes,Yes,Never,500-1000,Yes,No,Yes,Don't know,Don't know,Yes,Don't know,Somewhat easy,Maybe,Maybe,Some of them,Yes,No,No,Don't know,Yes,
 10/5/2014 21:16,35-44,Female,United States,IN,No,Yes,Yes,Sometimes,1-5,Yes,Yes,No,No,No,No,Yes,Don't know,Maybe,Maybe,Some of them,Some of them,No,No,Yes,No,
