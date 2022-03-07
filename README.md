@@ -41,11 +41,11 @@ The Map View is perhaps the most interesting and informative plot among all. A s
 ![Page3](sketch/Tab3.png)
 
 Developer Contribution
------------
+----------------------
 The general procedures to contribute to the current dashboard are outlined in the contributing file. If ineterested, there are some potentials that other developers can work on. For example, the original datset has as many as 27 features, but in the current dashboard we have only included 7-8 of the features. There are also rooms for further improvements in our Map View. The current view works fine but the authors feel like it can be modified to include much more information. 
 
 App Installation
------------
+----------------
 
 If you would like to run this dashboard locally you can follow this following instructions.
 
@@ -76,6 +76,27 @@ $ Python "src/app.py"
 ```sh
 $ http://127.0.0.1:8050/
 ```
+
+OR
+
+If you would like to run this dashboard locally with [Docker](https://www.docker.com/)
+
+1. Clone this repo to your local machine via:
+
+```sh
+$ git clone https://github.com/UBC-MDS/mental_health_in_tech_dashboard.git
+```
+
+Then navigate to the downloaded repo and in your terminal:
+
+```sh
+cd final-app
+docker-compose up
+```
+
+Finally, open the app in the followin URL http://localhost:8050/
+
+
 
 Dataset and Acknowledgements
 ----------------------------
