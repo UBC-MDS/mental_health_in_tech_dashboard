@@ -1,0 +1,10 @@
+# docker-compose.yml
+version: '3'
+services:
+  # main application
+  mental_health_dashboard:
+    container_name: mental_health_dashboard
+    build:
+      .
+    ports:
+      - "8000:8050"
