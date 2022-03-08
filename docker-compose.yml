@@ -2,9 +2,9 @@
 version: '3'
 services:
   # main application
-  mental_health_dashboard:
-    container_name: mental_health_dashboard
+  myapp:
+    container_name: myapp
     build:
       .
     ports:
-      - "8000:8050"
+      - "8050:8050"
