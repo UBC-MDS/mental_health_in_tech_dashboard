@@ -90,7 +90,6 @@ $ git clone https://github.com/UBC-MDS/mental_health_in_tech_dashboard.git
 Then navigate to the downloaded repo and in your terminal:
 
 ```sh
-cd final-app
 docker-compose up
 ```
 
