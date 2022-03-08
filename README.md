@@ -1,7 +1,5 @@
 # Mental Health in Tech Dashboard
 
-[![Publish Dockerfile on DockerHub](https://github.com/UBC-MDS/mental_health_in_tech_dashboard/actions/workflows/publish_docker_image.yml/badge.svg)](https://github.com/UBC-MDS/mental_health_in_tech_dashboard/actions/workflows/publish_docker_image.yml)
-
 The Mental Health in Tech Dashboard is created using [Dash](https://plotly.com/dash/) and [Python](https://www.python.org/). The provides interactive visuals for users to explore the [2014 Mental Health in Tech Survey](https://osmihelp.org/research) results and interaction of the different variables to see how mental health affect the worker in the tech worksplace as well as how well companies are prepared to help workers regarding mental health issues.
 
 Link to Application
@@ -87,13 +85,13 @@ If you would like to run this dashboard locally with [Docker](https://www.docker
 $ git clone https://github.com/UBC-MDS/mental_health_in_tech_dashboard.git
 ```
 
-Then navigate to the downloaded repo and in your terminal:
+Then navigate to the downloaded repo open your terminal from there and type:
 
 ```sh
 docker-compose up
 ```
 
-Finally, open the app in the followin URL http://localhost:8050/
+After it finished running without errors, go to http://localhost:8050/ with the browser of your choice.
 
 
 
