@@ -407,7 +407,7 @@ def interactive(question, chart_type, gender, size, age):
           data.Age.isin(age)]
       
     if chart_type == "Bar":
-        order = ["Yes", "No", "Maybe"]
+        order = ["Yes", "No", "Maybe", "Don't know", "Some of them"]
         fig = bar_chart(df_p, question, orientation="v", order=order)
         fig.update_layout(margin=dict(l=0, r=0, t=50, b=0),width = 800, height = 500,title="")
         return fig.to_html()
