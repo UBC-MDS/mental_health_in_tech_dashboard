@@ -3,7 +3,7 @@ version: '3'
 services:
   # main application
   myapp:
-    container_name: myapp
+    container_name: mental_health_in_tech_dashboard
     build:
       .
     ports:
