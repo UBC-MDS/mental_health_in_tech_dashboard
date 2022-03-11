@@ -15,10 +15,12 @@ import dash
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 app = Dash(
-    title="Mental Health in Tech Dashboard",
+    __name__,
     external_stylesheets=[dbc.themes.BOOTSTRAP],
     suppress_callback_exceptions=True
 )
+
+app.title = 'Mental Health in Tech Dashboard'
 
 server = app.server
 
