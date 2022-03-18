@@ -330,7 +330,7 @@ def tab3():
                                 dcc.Dropdown(id = 'answer-widget',),
                             ]),
                         ]),
-                ], width=5,style={'margin-right': '0px', 'margin-left': '-150px'}),
+                ],sm=10, md=12, lg=4, xl=4, style={'margin-right': '0px', 'margin-left': '0px'}),
                 dbc.Col([
                     dbc.Toast([
                         html.H3(id='display-question2'),
@@ -338,8 +338,8 @@ def tab3():
                             id = 'interactive_map',
                             style = {'width': '100%', 'height': '700px'}
                         )
-                        ], style={"width": "100%","height": "800px"}),
-                        ],className="chart-box",style={'margin-right': '0px', 'margin-left': '-150px'}),                  
+                        ], style={'margin-right': '0px', "width": "100%","height": "100%"}),
+                        ],sm=10, md=12, lg= 8, xl=8),                  
                     ]),
                 ])
             ])
@@ -520,10 +520,9 @@ def interactive_map(map_question, answer):
                         text=data_map.apply(lambda row: f"{row['Percent']:0.2f}%<br>{row['name']}", axis=1),
                         hoverinfo="text"))
     fig.update_layout(margin=dict(l=0, r=0, t=0, b=0), 
-                        width = 900, height = 600,
                       geo_scope='usa')
     return fig.to_html()
     
 
 if __name__ == '__main__':
-    app.run_server()
+    app.run_server(debug=True)
