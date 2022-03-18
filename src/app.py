@@ -231,7 +231,9 @@ def tab2():
                             html.P([
                                 html.H2("Instruction"),
                                 html.Br(),
-                                html.P("Please select the research question and respondents you would like to explore. By default, the plot includes all respondents in the data set."),
+                                html.P("""Please select the research question and respondents you would like to explore. By default, the plot includes all respondents in the data set. Use this tab 
+                                to explore how the state of mental health in tech varies by age, gender, and company size. For employers, this may help you to further understand 
+                                employee turnover, especially among different age and gender groups."""),
                                 html.H4("Plot type"),
                                 html.Br(),
                                 dcc.RadioItems(
@@ -317,7 +319,10 @@ def tab3():
                             html.P([
                                 html.H2("Instruction"),
                                 html.Br(),
-                                html.P("Please select the research question and response you would like to explore. The map will show you the percentage of your chosen response by states."),
+                                html.P("""Please select the research question and response you would like to explore. 
+                                The map will show you the percentage of your chosen response by state. For both tech employees and employers, 
+                                our hope for this tab is that it lets you explore how attitudes towards mental health vary by state. For recent tech graduates, you can use this tool 
+                                to help make a decision on where to work and live. """),
                                 html.Br(),
                                 html.H4("Survey questions"),
                                 dcc.Dropdown(
