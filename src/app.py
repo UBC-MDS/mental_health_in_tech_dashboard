@@ -291,16 +291,16 @@ def tab2():
     return layout
 
 answerDict = {
-    "Q11":["Yes","No","Dont' know"],
-    "Q12":["Yes","No","Dont' know"],
-    "Q13":["Very difficult","Somewhat difficult","Somewhat easy","Very easy","Dont' know"],
+    "Q11":["Yes","No","Don't know"],
+    "Q12":["Yes","No","Don't know"],
+    "Q13":["Very difficult","Somewhat difficult","Somewhat easy","Very easy","Don't know"],
     "Q14":["Yes","No","Maybe"],
     "Q15":["Yes","No","Maybe"],
     "Q16":["Yes","No","Some of them"],
     "Q17":["Yes","No","Some of them"],
     "Q18":["Yes","No","Maybe"],
     "Q19":["Yes","No","Maybe"],
-    "Q20":["Yes","No","Dont' know"],
+    "Q20":["Yes","No","Don't know"],
     "Q21":["Yes","No"]
 }  
 
@@ -370,16 +370,10 @@ navbar = dbc.Navbar(
     dark=True,
 )
  
-licensebar = dbc.Navbar(
+licensebar = html.Footer(
     dbc.Container(
-        [
-            html.A(
-                html.P("Mental Health in Tech Dashboard was created by Jordan Casoli, Nick Lisheng Mao, Hatef Rahmani and Ho Kwan Lio. The materials are licensed under the terms of the MIT license (Copyright (c) 2022 Master of Data Science at the University of British Columbia)."),
-                # href = "https://github.com/UBC-MDS/mental_health_in_tech_dashboard/blob/main/LICENSE",
-            ),
-        ]
-    ),
-    color = "grey"
+        html.P("Mental Health in Tech Dashboard was created by Jordan Casoli, Nick Lisheng Mao, Hatef Rahmani and Ho Kwan Lio. The materials are licensed under the terms of the MIT license (Copyright (c) 2022 Master of Data Science at the University of British Columbia)."),
+    )
 )
     
 app.layout = html.Div([
