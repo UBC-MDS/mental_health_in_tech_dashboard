@@ -1,6 +1,6 @@
 # Mental Health in Tech Dashboard
 
-The Mental Health in Tech Dashboard is created using [Dash](https://plotly.com/dash/) and [Python](https://www.python.org/). The provides interactive visuals for users to explore the [2014 Mental Health in Tech Survey](https://osmihelp.org/research) results and interaction of the different variables to see how mental health affect the worker in the tech worksplace as well as how well companies are prepared to help workers regarding mental health issues.
+The Mental Health in Tech Dashboard is created using [Dash](https://plotly.com/dash/) and [Python](https://www.python.org/). The provides interactive visuals for users to explore the [2014 Mental Health in Tech Survey](https://www.kaggle.com/osmi/mental-health-in-tech-survey) results and interaction of the different variables to see how mental health affect the worker in the tech workspace as well as how well companies are prepared to help workers regarding mental health issues.
 
 Link to Application
 ------------
@@ -14,7 +14,7 @@ Demo
 
 Motivation
 ---------
-It is important for both employer and employee to acknowledge the importance of mental health and how it impacts work performance at work especially in the tech industry. This dashboard is intended for both employer and employee (current or new) who are working in the tech industry to be able to visually explore the interaction of variables from the [2014 Mental Health in Tech Survey](https://osmihelp.org/research). The variables consisted of location of the respondents, demographic variables such as age and gender, employment status, company size, avaibility of benefit related to mental health or wellness program, impact on physical and work performance due to mental health etc..
+It is important for both employer and employee to acknowledge the importance of mental health and how it impacts work performance at work especially in the tech industry. This dashboard is intended for both employer and employee (current or new) who are working in the tech industry to be able to visually explore the interaction of variables from the [2014 Mental Health in Tech Survey](https://www.kaggle.com/osmi/mental-health-in-tech-survey). The variables consisted of location of the respondents, demographic variables such as age and gender, employment status, company size, availability of benefit related to mental health or wellness program, impact on physical and work performance due to mental health etc..
 
 Overview of the dashboard
 --------
@@ -28,7 +28,7 @@ In Summary View, four plots are presented along with some information on the dat
 
 ### Interactive View
 
-In ths view, an interactive plot is presented to show the percentage of companies that offers mental health benefits. This is an interactive graph, and the user can select the survery question, age, gender, and company size from the dropdown menu / radio buttons in left panel, and examine how the distribution changes. The user has also the option to see the data in either pie or bar plot. 
+In this view, an interactive plot is presented to show the percentage of companies that offers mental health benefits. This is an interactive graph, and the user can select the survey question, age, gender, and company size from the dropdown menu / radio buttons in left panel, and examine how the distribution changes. The user has also the option to see the data in either pie or bar plot. 
 
 ![Page2](sketch/Tab2.png)
 
@@ -40,7 +40,7 @@ The Map View is perhaps the most interesting and informative plot among all. A s
 
 Developer Contribution
 ----------------------
-The general procedures to contribute to the current dashboard are outlined in the contributing file. If ineterested, there are some potentials that other developers can work on. For example, the original datset has as many as 27 features, but in the current dashboard we have only included 7-8 of the features. There are also rooms for further improvements in our Map View. The current view works fine but the authors feel like it can be modified to include much more information. 
+The general procedures to contribute to the current dashboard are outlined in the contributing file. If interested, there are some potentials that other developers can work on. For example, the original dataset has as many as 27 features, but in the current dashboard we have only included 7-8 of the features. There are also rooms for further improvements in our Map View. The current view works fine but the authors feel like it can be modified to include much more information. 
 
 App Installation
 ----------------
@@ -106,12 +106,12 @@ Authors
 -------
 
 - [Jordan Casoli](https://github.com/jcasoli)
-- [Nick LiSheng Mao](https://github.com/nickmao1994)
+- [Nick Lisheng Mao](https://github.com/nickmao1994)
 - [Hatef Rahmani](https://github.com/hatefr)
 - [Ho Kwan Lio](https://github.com/stevenlio88)
 
 
 License
 -------
-Mental Health in Tech Dashboard was created by Jordan Casoli, Nick LiSheng Mao, Hatef Rahmani and Ho Kwan Lio. The materials are licensed under the terms of the MIT license (Copyright (c) 2022 Master of Data Science at the University of British Columbia). See [here](https://github.com/UBC-MDS/mental_health_in_tech_dashboard/blob/main/LICENSE) for details.
+Mental Health in Tech Dashboard was created by Jordan Casoli, Nick Lisheng Mao, Hatef Rahmani and Ho Kwan Lio. The materials are licensed under the terms of the MIT license (Copyright (c) 2022 Master of Data Science at the University of British Columbia). See [here](https://github.com/UBC-MDS/mental_health_in_tech_dashboard/blob/main/LICENSE) for details.
 

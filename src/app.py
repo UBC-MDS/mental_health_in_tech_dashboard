@@ -25,6 +25,7 @@ app.title = 'Mental Health in Tech Dashboard'
 server = app.server
 
 logo = "https://cdn-icons-png.flaticon.com/512/2017/2017231.png"
+gitlogo = "https://cdn-icons-png.flaticon.com/512/25/25231.png"
 data = pd.read_csv("data/processed/survey.csv")
 
 
@@ -112,7 +113,8 @@ def tab1():
     """Summary Overview"""
     # pie plot for gender    
     colors = ['pink','lightskyblue','lightgray']
-    pg = pie_chart(data,col="Gender",colors=colors)
+    title = "Gender distribution of respondents"
+    pg = pie_chart(data,col="Gender", title = title, colors=colors)
 
     # bar plot for size
     order = ["1-5", "6-25", "26-100", "100-500","500-1000","More than 1000"]
@@ -120,7 +122,8 @@ def tab1():
     bar_size = bar_chart(data,"Q5",title=title,order=order)
     
     # bar plot for age
-    bar_age = bar_chart(data,"Age", orientation="v")
+    title = "Age distribution of respondents"
+    bar_age = bar_chart(data,"Age", orientation="v", title = title)
     
     # pie plot for benefit
     title = "Percentage whose knowledge about their <br> company's offer for mental health benefits"
@@ -137,15 +140,21 @@ def tab1():
                         html.H1(children="Mental Health in Tech Dashboard"), 
                         html.Br(),
                         html.P([
-                                html.H2("Introduction"),
-                                html.Br(),
-                                html.P("In this dashboard we want explore the attitude towards mental health in tech companies. We assume that the gender, age, company size, whether the company provides mental health benefits are likely to be correlated with our research question. We also explore the geographical distribution of respondents."),
-                                html.Br(),
-                                html.H3("Data Source"),
-                                html.P("The data set used in this dashboard is from the link below "),
-                                dcc.Link(
-                                href="https://www.kaggle.com/osmi/mental-health-in-tech-2016",
-                                title="Data set")
+                            html.H2("Introduction"),
+                            html.Br(),
+                            html.P(["In this dashboard we want explore the attitude towards mental health in tech companies. We assume that the gender, age, company size, whether the company provides mental health benefits are likely to be correlated with our research question. We also explore the geographical distribution of respondents.", html.Br(), "The first summary tab presents an overall distribution of respondents. The interactive tab allows you to choose a specific question to explore. The map tab shows the response to a specific question by states."]),
+                            html.Br(),
+                            html.H3("Data Source"),
+                            html.P("The data set used in this dashboard is from the link below. This dataset is from a 2014 survey that measures attitudes towards mental health and frequency of mental health disorders in the tech workplace."),
+                            dcc.Link(
+                                href="https://www.kaggle.com/osmi/mental-health-in-tech-survey",
+                                title="Data set"),
+                            html.Br(),
+                            html.H3("Original Survey"),
+                            html.P("The OSMI conducts the mental health in tech survey every year. The survey data for other years can be found at this link below."),
+                            dcc.Link(
+                                href="https://osmihelp.org/research",
+                                title="Original Research"),
                             ]),
                     ]),
                 ], width=3,style={'margin-right': '0px', 'margin-left': '20px'}),
@@ -220,6 +229,9 @@ def tab2():
                         html.H1(children="Mental Health in Tech Dashboard"), 
                         html.Br(),
                             html.P([
+                                html.H2("Instruction"),
+                                html.Br(),
+                                html.P("Please select the research question and respondents you would like to explore. By default, the plot includes all respondents in the data set."),
                                 html.H4("Plot type"),
                                 html.Br(),
                                 dcc.RadioItems(
@@ -230,7 +242,6 @@ def tab2():
                                     labelStyle={'display': 'block'},
                                 ),
                                 html.Br(),
-                                
                                 html.H4("Survey questions"),
                                 dcc.Dropdown(
                                     id = 'q-widget',
@@ -304,6 +315,9 @@ def tab3():
                         html.H1(children="Mental Health in Tech Dashboard"), 
                         html.Br(),
                             html.P([
+                                html.H2("Instruction"),
+                                html.Br(),
+                                html.P("Please select the research question and response you would like to explore. The map will show you the percentage of your chosen response by states."),
                                 html.Br(),
                                 html.H4("Survey questions"),
                                 dcc.Dropdown(
@@ -340,7 +354,9 @@ navbar = dbc.Navbar(
                 dbc.Row(
                     [
                         dbc.Col(html.Img(src=logo, height="30px")),
-                        dbc.Col(dbc.NavbarBrand("Mental Health in Tech Dashboard", className="ms-2")),
+                        dbc.Col(dbc.NavbarBrand("Mental Health in Tech Dashboard", className="ms-2")),                        
+                        dbc.Col(),
+                        dbc.Col(html.Img(src = gitlogo, height = "30px"))
                     ],
                     align="left",
                     className="g-0",
@@ -353,11 +369,24 @@ navbar = dbc.Navbar(
     color="lightskyblue",
     dark=True,
 )
-  
+ 
+licensebar = dbc.Navbar(
+    dbc.Container(
+        [
+            html.A(
+                html.P("Mental Health in Tech Dashboard was created by Jordan Casoli, Nick Lisheng Mao, Hatef Rahmani and Ho Kwan Lio. The materials are licensed under the terms of the MIT license (Copyright (c) 2022 Master of Data Science at the University of British Columbia)."),
+                # href = "https://github.com/UBC-MDS/mental_health_in_tech_dashboard/blob/main/LICENSE",
+            ),
+        ]
+    ),
+    color = "grey"
+)
+    
 app.layout = html.Div([
         dbc.Row([
             navbar,
             tabs(),
+            licensebar
         ])
 ])
 
