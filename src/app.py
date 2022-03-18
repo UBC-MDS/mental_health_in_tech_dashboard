@@ -274,7 +274,7 @@ def tab2():
                                     multi = True),
                             ]),
                         ]),
-                ], width=5,style={'margin-right': '0px', 'margin-left': '20px'}),
+                ], sm=10, md=12, lg=4, xl=4, style={'margin-right': '0px', 'margin-left': '0px'}),
                 dbc.Col([
                     dbc.Toast([
                         html.H3(id='display-question'),
@@ -282,8 +282,8 @@ def tab2():
                             id = 'interactive',
                             style = {'width': '100%', 'height': '700px'}
                         )
-                        ], style={"width": "100%","height": "800px"}),
-                        ],className="chart-box",style={'margin-right': '0px', 'margin-left': '-150px'}),    
+                        ], style={"width": "100%","height": "100%"}),
+                        ],sm=10, md=12, lg= 8, xl=8, className="chart-box"),    
                     ]),
                 ])
             ])
@@ -434,12 +434,12 @@ def interactive(question, chart_type, gender, size, age):
     if chart_type == "Bar":
         order = ["Yes", "No", "Maybe", "Don't know", "Some of them"]
         fig = bar_chart(df_p, question, orientation="v", order=order)
-        fig.update_layout(margin=dict(l=0, r=0, t=50, b=0),width = 800, height = 500,title="")
+        fig.update_layout(margin=dict(l=0, r=0, t=50, b=0) , width = 800, height = 500, title="")
         return fig.to_html()
     
     if chart_type == "Pie":       
         fig = pie_chart(df_p, question, colors=['skyblue','navy','lightgray'])    
-        fig.update_layout(margin=dict(l=0, r=0, t=50, b=0),width = 800, height = 500,title="")
+        fig.update_layout(margin=dict(l=0, r=0, t=50, b=0), width = 800, height = 500, title="")
         return fig.to_html()
 
   
