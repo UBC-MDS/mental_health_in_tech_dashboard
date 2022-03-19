@@ -4,7 +4,7 @@ The Mental Health in Tech Dashboard is created using [Dash](https://plotly.com/d
 
 Link to Application
 ------------
-Here is the link to our Heroku deployment:
+Here is the link to the app (Hosted on Heroku):
 
 [Web App](https://dsci-532-mental-health-python.herokuapp.com/)
 
@@ -34,7 +34,7 @@ In this view, an interactive plot is presented to show the percentage of compani
 
 ### Map View
 
-The Map View is perhaps the most interesting and informative plot among all. A simple interactive map is presented showcasing how the survey response variables differ across each different states in US. The user can select the appropriate response and variables from the left panel and by hovering the mouse on the map, the quantitave statistics are displayed. The distribution of responses is also shown on the map using color scheme. 
+The Map View is perhaps the most interesting and informative plot among all. A simple interactive map is presented showcasing how the survey response variables differ across each different states in US. The user can select the appropriate response and variables from the left panel and by hovering the mouse on the map, the quantitave statistics are displayed. The distribution of responses is also shown on the map using color scheme. The survey originally conducted internationally we choosed to present US data here in this tab.
 
 ![Page3](sketch/Tab3.png)
 
