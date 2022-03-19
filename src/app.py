@@ -141,17 +141,22 @@ def tab1():
                         html.H1(children="Mental Health in Tech Dashboard"), 
                         html.Br(),
                         html.P([
-                            html.H2("Introduction"),
+                            html.H4("Introduction"),
                             html.Br(),
-                            html.P(["In this dashboard we want explore the attitude towards mental health in tech companies. We assume that the gender, age, company size, whether the company provides mental health benefits are likely to be correlated with our research question. We also explore the geographical distribution of respondents.", html.Br(), "The first summary tab presents an overall distribution of respondents. The interactive tab allows you to choose a specific question to explore. The map tab shows the response to a specific question by states."]),
+                            html.P([
+                                "In this dashboard we want explore the attitude towards mental health in tech companies. We assume that the gender, age, company size, whether the company provides mental health benefits are likely to be correlated with our research question. We also explore the geographical distribution of respondents.", 
+                                html.Br(), 
+                                html.Br(), 
+                                "The first summary tab presents an overall distribution of respondents. The interactive tab allows you to choose a specific question to explore. The map tab shows the response to a specific question by states."
+                            ]),
                             html.Br(),
-                            html.H3("Data Source"),
+                            html.H4("Data Source"),
                             html.P("The data set used in this dashboard is from the link below. This dataset is from a 2014 survey that measures attitudes towards mental health and frequency of mental health disorders in the tech workplace."),
                             dcc.Link(
                                 href="https://www.kaggle.com/osmi/mental-health-in-tech-survey",
                                 title="Data set"),
                             html.Br(),
-                            html.H3("Original Survey"),
+                            html.H4("Original Survey"),
                             html.P("The OSMI conducts the mental health in tech survey every year. The survey data for other years can be found at this link below."),
                             dcc.Link(
                                 href="https://osmihelp.org/research",
@@ -229,53 +234,50 @@ def tab2():
                     dbc.Toast([
                         html.H1(children="Mental Health in Tech Dashboard"), 
                         html.Br(),
-                            html.P([
-                                html.H2("Instruction"),
-                                html.Br(),
-                                html.P("""Please select the research question and respondents you would like to explore. By default, the plot includes all respondents in the data set. Use this tab 
-                                to explore how the state of mental health in tech varies by age, gender, and company size. For employers, this may help you to further understand 
-                                employee turnover, especially among different age and gender groups."""),
-                                html.H4("Plot type"),
-                                html.Br(),
-                                dcc.RadioItems(
-                                    id = 'chart-widget',
-                                    options = ["Pie", "Bar"],
-                                    value = "Pie",
-                                    inline=False,
-                                    labelStyle={'display': 'block'},
-                                ),
-                                html.Br(),
-                                html.H4("Survey questions"),
-                                dcc.Dropdown(
-                                    id = 'q-widget',
-                                    value = list(qdict.keys())[0],
-                                    options = [{'label': q, 'value': p} for p, q in qdict.items()],
-                                    optionHeight = 100),
-                                html.Br(),
-                                
-                                html.H4("Gender"),
-                                dcc.Dropdown(
-                                    id = 'gender-widget',
-                                    value = genderlist,
-                                    options = [{'label': gender, 'value': gender} for gender in genderlist],
-                                    multi = True),
-                                html.Br(),
-                                
-                                html.H4("Age"),
-                                dcc.Dropdown(
-                                    id = 'age-widget',
-                                    value = agelist,
-                                    options = [{'label': age, 'value': age} for age in agelist],
-                                    multi = True),
-                                html.Br(),
-                                
-                                html.H4("Company size"),
-                                dcc.Dropdown(
-                                    id = 'size-widget',
-                                    value = sizelist,
-                                    options = [{'label': size, 'value': size} for size in sizelist],
-                                    multi = True),
-                            ]),
+                        html.P("Use this tab to explore how the state of mental health in tech varies by age, gender, and company size. For employers, this may help you to further understand employee turnover, especially among different age and gender groups."),
+                        html.H4("Instruction"),
+                        html.Br(),
+                        html.P("Please select the research question and filter on different respondent's demographic you would like to compare their responses. By default, the plot includes all respondents in the data set."),
+                        html.H4("Plot type"),
+                        html.Br(),
+                        dcc.RadioItems(
+                            id = 'chart-widget',
+                            options = ["Pie", "Bar"],
+                            value = "Pie",
+                            inline=False,
+                            labelStyle={'display': 'block'},
+                        ),
+                        html.Br(),
+                        html.H4("Survey questions"),
+                        dcc.Dropdown(
+                            id = 'q-widget',
+                            value = list(qdict.keys())[0],
+                            options = [{'label': q, 'value': p} for p, q in qdict.items()],
+                            optionHeight = 100),
+                        html.Br(),
+                        
+                        html.H4("Gender"),
+                        dcc.Dropdown(
+                            id = 'gender-widget',
+                            value = genderlist,
+                            options = [{'label': gender, 'value': gender} for gender in genderlist],
+                            multi = True),
+                        html.Br(),
+                        
+                        html.H4("Age"),
+                        dcc.Dropdown(
+                            id = 'age-widget',
+                            value = agelist,
+                            options = [{'label': age, 'value': age} for age in agelist],
+                            multi = True),
+                        html.Br(),
+                        
+                        html.H4("Company size"),
+                        dcc.Dropdown(
+                            id = 'size-widget',
+                            value = sizelist,
+                            options = [{'label': size, 'value': size} for size in sizelist],
+                            multi = True),
                         ]),
                 ], sm=10, md=12, lg=4, xl=4, style={'margin-right': '0px', 'margin-left': '0px'}),
                 dbc.Col([
@@ -318,12 +320,15 @@ def tab3():
                         html.H1(children="Mental Health in Tech Dashboard"), 
                         html.Br(),
                             html.P([
-                                html.H2("Instruction"),
                                 html.Br(),
-                                html.P("""Please select the research question and response you would like to explore. 
-                                The map will show you the percentage of your chosen response by state. For both tech employees and employers, 
-                                our hope for this tab is that it lets you explore how attitudes towards mental health vary by state. For recent tech graduates, you can use this tool 
-                                to help make a decision on where to work and live. """),
+                                html.P([
+                                    "The map will show you the percentage of your chosen response by state. For both tech employees and employers, our hope for this tab is that it lets you explore how attitudes towards mental health vary by state. For recent tech graduates, you can use this tool to help make a decision on where to work and live.",
+                                    html.Br(),
+                                    "Note the original survey is conducted internationally, for presentation purposes, here is only showing the responses from the US."
+                                ]),
+                                html.H4("Instruction"),
+                                html.Br(),
+                                html.P("Please select the research question and response you would like to explore."),
                                 html.Br(),
                                 html.H4("Survey questions"),
                                 dcc.Dropdown(
@@ -362,18 +367,24 @@ navbar = dbc.Navbar(
                         dbc.Col(html.Img(src=logo, height="30px")),
                         dbc.Col(dbc.NavbarBrand("Mental Health in Tech Dashboard", className="ms-2")),                        
                         dbc.Col(style={'margin-right': '700px'}),
-                        dbc.Col(html.Img(src = gitlogo, height = "30px")),
+                        dbc.Col(
+                            html.A(
+                                dbc.Col(html.Img(src = gitlogo, height = "30px")),
+                                href="https://github.com/UBC-MDS/mental_health_in_tech_dashboard"
+                                )
+                            ),
                         dbc.Col(style={'margin-right': '5px', 'margin-left': '5px'}),
-                        dbc.Col(html.A(
-                            dbc.Col(html.Img(src = herokulogo, height = "30px")), 
-                            href="https://dsci-532-mental-health-python.herokuapp.com/"
+                        dbc.Col(
+                            html.A(
+                                dbc.Col(html.Img(src = herokulogo, height = "30px")), 
+                                href="https://dsci-532-mental-health-python.herokuapp.com/"
                             )
                         )
                     ],
                     align="left",
                     className="g-0",
                 ),
-                href="https://github.com/UBC-MDS/mental_health_in_tech_dashboard",
+                href="https://dsci-532-mental-health-python.herokuapp.com/",
                 style={"textDecoration": "none"},
             ),
         ]
