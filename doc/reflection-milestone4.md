@@ -6,5 +6,7 @@ Although the source code (i.e. app.py) is clean, it would be useful to modulariz
 
 Another area that can be vastly improved is our map view. The current map is functional with some interactivity. However, there are many more things that can be implemented to enhance the user experience of the map. The current map displays information from more than one question on the chloropleth, but that can be modified to include more questions related to the mental health issues in Tech. Or, for creating this app given the time constraint, we have only used 7-8 features of the original dataset (out of 27 features). We believe the app can be modified to display more information with little efforts.  
 
+In future we would like to incorporate the dashboard with more recent survey data instead of using the 2014, and by consolidate all survey results we may track changes in the responses over time and present it in the dashboard.
+
 In summary, we are quite happy with the progress we made for the app, but similar to any other dashboard, ceratin improvements are possible which are discussed above.
 
