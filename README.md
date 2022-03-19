@@ -94,7 +94,6 @@ docker-compose up
 After it finished running without errors, go to http://localhost:8050/ with the browser of your choice.
 
 
-
 Dataset and Acknowledgements
 ----------------------------
 This dataset used in this tool is from a 2014 survey conducted by [Open Sourcing Mental Illness Ltd](https://osmihelp.org/about/about-osmi) that measures worker's attitudes towards mental health and frequency of mental health disorders in the tech workplace.
