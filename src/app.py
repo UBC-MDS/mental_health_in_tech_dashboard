@@ -234,7 +234,7 @@ def tab2():
                     dbc.Toast([
                         html.H1(children="Mental Health in Tech Dashboard"), 
                         html.Br(),
-                        html.P("Use this tab to explore how the state of mental health in tech varies by age, gender, and company size. For employers, this may help you to further understand employee turnover, especially among different age and gender groups."),
+                        html.P("Use this tab to explore how the state of mental health in tech varies by age, gender, and company size. For employers, this may help you to further understand employee turnover, especially among different age and gender groups. "),
                         html.H4("Instruction"),
                         html.Br(),
                         html.P("Please select the research question and filter on different respondent's demographic you would like to compare their responses. By default, the plot includes all respondents in the data set."),
