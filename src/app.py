@@ -26,6 +26,7 @@ server = app.server
 
 logo = "https://cdn-icons-png.flaticon.com/512/2017/2017231.png"
 gitlogo = "https://cdn-icons-png.flaticon.com/512/25/25231.png"
+herokulogo = "https://brand.heroku.com/static/media/heroku-logo-stroke.aa0b53be.svg"
 data = pd.read_csv("data/processed/survey.csv")
 
 
@@ -360,8 +361,14 @@ navbar = dbc.Navbar(
                     [
                         dbc.Col(html.Img(src=logo, height="30px")),
                         dbc.Col(dbc.NavbarBrand("Mental Health in Tech Dashboard", className="ms-2")),                        
-                        dbc.Col(),
-                        dbc.Col(html.Img(src = gitlogo, height = "30px"))
+                        dbc.Col(style={'margin-right': '700px'}),
+                        dbc.Col(html.Img(src = gitlogo, height = "30px")),
+                        dbc.Col(style={'margin-right': '5px', 'margin-left': '5px'}),
+                        dbc.Col(html.A(
+                            dbc.Col(html.Img(src = herokulogo, height = "30px")), 
+                            href="https://dsci-532-mental-health-python.herokuapp.com/"
+                            )
+                        )
                     ],
                     align="left",
                     className="g-0",
